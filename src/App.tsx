@@ -5,7 +5,7 @@ const URL = import.meta.env.VITE_SUPABASE_URL;
 const ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
 function App() {
-  const [data, setData] = useState("");
+  const [data, setData] = useState({ message: null });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
@@ -40,7 +40,7 @@ function App() {
         ) : error ? (
           <p>Error: {error}</p>
         ) : (
-          <p>{data.message}</p>
+          data.message && <p>{data.message}</p>
         )}
       </div>
     </>
